@@ -1,0 +1,20 @@
+.border-glow-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+
+.border-glow-overlay {
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  will-change: opacity, background;
+}
+
+.border-glow-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}

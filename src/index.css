@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    background-color: #FFFDF7;
+    color: #003049;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF2D5;
+}
+::-webkit-scrollbar-thumb {
+  background: #669BBC;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #003049;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(102, 155, 188, 0.2);
+}
+
+.glass-cream {
+  background: rgba(255, 242, 213, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 16, 46, 0.15);
+}
+
+/* Subtle glow effects */
+.border-glow-crimson {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.border-glow-crimson:hover {
+  box-shadow: 0 0 20px -3px rgba(200, 16, 46, 0.4);
+}
+
+.border-glow-blue {
+  position: relative;
+  transition: all 0.3s ease;
+}
+.border-glow-blue:hover {
+  box-shadow: 0 0 20px -3px rgba(102, 155, 188, 0.45);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

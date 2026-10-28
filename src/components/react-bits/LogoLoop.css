@@ -1,0 +1,84 @@
+.logo-loop-container,
+.experience-marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.logo-loop-track,
+.experience-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Pause the ENTIRE marquee animation whenever the mouse enters ANY part of the container */
+.logo-loop-container:hover .logo-loop-track,
+.experience-marquee-container:hover .experience-marquee-track,
+.logo-loop-container:hover .logo-loop-track *,
+.experience-marquee-container:hover .experience-marquee-track * {
+  animation-play-state: paused !important;
+}
+
+@media (hover: hover) {
+  .logo-loop-container:hover .logo-loop-track,
+  .experience-marquee-container:hover .experience-marquee-track {
+    animation-play-state: paused !important;
+  }
+}
+
+.logo-loop-item,
+.experience-marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+
+.logo-loop-item:hover,
+.experience-marquee-item:hover {
+  transform: scale(1.08);
+}
+
+.logo-loop-fade-left,
+.logo-loop-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.logo-loop-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 249, 237, 0.95) 0%, rgba(255, 249, 237, 0) 100%);
+}
+
+.logo-loop-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 249, 237, 0.95) 0%, rgba(255, 249, 237, 0) 100%);
+}
+
+@keyframes infiniteLoopMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .logo-loop-track,
+  .experience-marquee-track {
+    animation: none !important;
+    overflow-x: auto;
+  }
+}
